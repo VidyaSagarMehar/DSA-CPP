@@ -9,6 +9,17 @@ int fact(int x)
     }
     return f;
 }
+int combination(int n, int r)
+{
+    int ncr = fact(n) / (fact(r) * fact(n - r));
+    return ncr;
+}
+int permutation(int n, int r)
+{
+    int npr = fact(n) / (fact(n - r));
+    return npr;
+}
+
 int main()
 {
     int n, r;
@@ -16,9 +27,8 @@ int main()
     cin >> n;
     cout << "Enter the r : ";
     cin >> r;
-    int nFact = fact(n);
-    int rFact = fact(r);
-    int nrFact = fact(n - r);
-    int ncr = nFact / (rFact * nrFact);
-    cout << ncr;
+    int ncr = combination(n, r);
+    int npr = permutation(n, r);
+    cout << "combination : " << ncr << endl
+         << "Permutation : " << npr;
 }
